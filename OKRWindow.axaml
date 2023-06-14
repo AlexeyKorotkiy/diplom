@@ -1,0 +1,126 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+        x:Class="ORM_00.OKRWindow"
+        Title="OKRWindow">
+	<Grid Margin="20">
+		<Grid ColumnDefinitions="2* * *"
+			  RowDefinitions="Auto Auto * Auto">
+
+			<TextBlock Name="countBlock"
+					   Text=""
+					   Grid.Column="0"
+					   Grid.Row="0"
+					   FontFamily="Tw Cen MT"/>
+
+			<TextBox Name="searchBox"
+					 Grid.Column="0"
+					 Grid.Row="1"
+					 VerticalAlignment="Top"
+					 Watermark="Поиск"
+					 FontFamily="Tw Cen MT"/>
+
+			<ComboBox Name="sortBox"
+					  Grid.Column="1"
+					  Grid.Row="1"
+					  Margin="10, 0, 0, 0"
+					  HorizontalAlignment="Stretch"
+					  SelectedIndex="0"
+					  FontFamily="Tw Cen MT">
+				<ComboBoxItem Content="Все элементы"/>
+				<ComboBoxItem Content="По возрастанию даты"/>
+				<ComboBoxItem Content="По убыванию даты"/>
+			</ComboBox>
+
+			<ComboBox Name="filtBox"
+					  Grid.Column="2"
+					  Grid.Row="1"
+					  HorizontalAlignment="Stretch"
+					  SelectedIndex="0"
+					  Margin="10, 0, 0, 0"
+					  FontFamily="Tw Cen MT">
+				<ComboBoxItem Content="Все ДИС"/>
+				<ComboBoxItem Content="Все ОКР"/>
+				<ComboBoxItem Content="Все ДИС 2016 года"/>
+				<ComboBoxItem Content="Все ДИС 2017 года"/>
+				<ComboBoxItem Content="Все ДИС 2018 года"/>
+				<ComboBoxItem Content="Все ДИС 2019 года"/>
+				<ComboBoxItem Content="Все ДИС 2020 года"/>
+				<ComboBoxItem Content="Все ДИС 2021 года"/>
+				<ComboBoxItem Content="Все ДИС 2022 года"/>
+				<ComboBoxItem Content="Все ДИС 2023 года"/>
+			</ComboBox>
+
+			<ListBox Name="listBox"
+					 Grid.Column="0"
+					 Grid.Row="2"
+					 Margin="0, 10, 0, 10"
+					 Grid.ColumnSpan="3">
+				<ListBox.ItemTemplate>
+					<DataTemplate>
+						<Border BorderBrush="Black"
+								BorderThickness="1"
+								Background="LightGoldenrodYellow">
+							<StackPanel Background="{Binding StackPanelColor}" Orientation="Horizontal"
+										Spacing="10">
+
+								<Border BorderBrush="Black"
+										BorderThickness="1"
+										Margin="10">
+									<StackPanel Orientation="Vertical"
+												Spacing="5"
+												Margin="10"
+												Width="840"
+												VerticalAlignment="Center"
+												HorizontalAlignment="Center">
+										<TextBlock Text="{Binding IdOKR}"/>
+										<TextBlock Text="{Binding Title}"
+												   FontFamily="Tw Cen MT"/>
+										<TextBlock Text="{Binding NameComp}"
+												   FontFamily="Tw Cen MT"/>
+										<TextBlock Text="{Binding RegulatoryDoc}"
+												   FontFamily="Tw Cen MT"/>
+										<TextBlock Text="{Binding Statuse}"
+												   FontFamily="Tw Cen MT"/>
+
+										<StackPanel Orientation="Horizontal"
+													Spacing="10">
+											<DockPanel>
+												<Button Click="GoIn"
+														Content="Перейти"/>
+												<Button Name="DeleteOkr"
+														Content="Удалить"/>
+
+											</DockPanel>
+
+										</StackPanel>
+									</StackPanel>
+								</Border>
+
+							</StackPanel>
+						</Border>
+					</DataTemplate>
+				</ListBox.ItemTemplate>
+			</ListBox>
+
+			<Button Grid.Column="0"
+					Grid.Row="3"
+					Content="Добавить"
+					Name="addButt"
+					FontFamily="Tw Cen MT"/>
+			<Button Grid.Column="1"
+					Grid.Row="3"
+					Content="История"
+					Name="HisButt"
+					FontFamily="Tw Cen MT"/>
+			<Button Grid.Column="2"
+					Grid.Row="3"
+					HorizontalAlignment="Right"
+					Content="Выйти"
+					Name="backButt"
+					FontFamily="Tw Cen MT"/>
+		</Grid>
+	</Grid>
+</Window>
